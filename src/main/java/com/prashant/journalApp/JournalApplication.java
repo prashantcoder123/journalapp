@@ -12,16 +12,12 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class JournalApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(JournalApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(JournalApplication.class, args);
+    }
 
     @Bean
-    public PlatformTransactionManager add(MongoDatabaseFactory dbFactory){
+    public PlatformTransactionManager transactionManager(MongoDatabaseFactory dbFactory) {
         return new MongoTransactionManager(dbFactory);
     }
 }
-
-
-//PlatformTransactionManager.
-//MongoTransactionManager.
